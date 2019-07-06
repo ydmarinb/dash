@@ -1,23 +1,13 @@
-#library(leaflet)
-library(tidyverse)
 
-#leaflet()  %>% 
-#  setView(lng = -75.5763927, lat = 6.2602243, zoom = 10) %>% 
-#  addProviderTiles("CartoDB")  %>%
-#  addMarkers(lng = longitude, lat = latitude)
 
-#setwd('../Documents/Simposio/dash borad/data/')
-hurto <- read.csv('../Documents/Simposio/dash borad/hurto.csv')
+#setwd('../Documents/Simposio/dash board/data/')
+hurto <- read.csv('../hurto.csv')
 
 
 
-#arma_medio <- sample(unique(hurto$arma_medio), 4)      
-#modalidad <- sample(unique(hurto$modalidad), 4)
-#sede_receptora <- sample(unique(hurto$sede_receptora), 4)
 barrios <- c('La Candelaria', 'Belén', 'Aranjuez', 'Villa Hermosa')
 longitud <- c(-75.56207 ,-75.57350,-75.56064,-75.55184)
 latitud <- c(6.249172 ,6.244254 ,6.281832,6.256428)
-#edad <- sample(unique(hurto$edad), 4)
 
 i=0
 while(i<100){
