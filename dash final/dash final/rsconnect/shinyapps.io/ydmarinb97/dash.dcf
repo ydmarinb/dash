@@ -1,0 +1,13 @@
+name: dash
+title: dash
+username:
+account: ydmarinb97
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1015470
+bundleId: 2208864
+url: https://ydmarinb97.shinyapps.io/dash/
+when: 1562544012.0214
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: datos

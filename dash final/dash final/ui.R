@@ -10,9 +10,9 @@ sidebar <- dashboardSidebar(
     sidebarMenu(
         menuItem("General", tabName = "widgets", icon = icon("dashboard")),
         menuItem("Stremming", icon = icon("th"), tabName = "dashboard",
-                 badgeLabel = "new", badgeColor = "green"),
+                 badgeLabel = "Real", badgeColor = "green"),
         menuItem("Datos", icon = icon("table"), tabName = "data",
-                 badgeLabel = "new", badgeColor = "green"),
+                 badgeLabel = "Informe", badgeColor = "blue"),
         selectInput('nombre.barrio', 'Nombre barrio', choices = unique(hurto$nombre_barrio)),
         selectInput('lugar', 'Lugar', choices = unique(hurto$lugar)),
         fluidRow(
@@ -48,20 +48,30 @@ body <- dashboardBody(
         tabItem(tabName = "dashboard",
                 fluidRow(
                     box(title = "Mapa robos",
-                        status = "primary",
+                        status = "info",
                         solidHeader = TRUE,
-                        leafletOutput('mapa', width = "100%", height = "750px")),
-                    box(title = "Conteo robos", status = "warning",
+                        leafletOutput('mapa', width = "100%", height = "300px"),
+                        width = 12),
+                    box(title = "Conteo robos", status = "info",
                         solidHeader = TRUE,
-                        plotOutput('barras_stre', width = "100%", height = "350px"))
+                        plotOutput('barras_stre', width = "100%", height = "300"),
+                        width = 12)
                 )),
         
         tabItem(tabName = "widgets",
                 fluidRow(
-                    box(plotlyOutput('mosaico', width = "100%", height = "400px")),
-                    box(plotlyOutput('densidad', width = "100%", height = "400px")),
-                    box(plotlyOutput('barcategori', width = "100%", height = "400px")),
-                    box(plotlyOutput('Balloon', width = "100%", height = "400px"))
+                    box(plotlyOutput('mosaico', width = "100%", height = "400px"),
+                        status = "info",
+                        solidHeader = TRUE, title = 'treemap'),
+                    box(plotlyOutput('densidad', width = "100%", height = "400px"),
+                        status = "info",
+                        solidHeader = TRUE, title = 'Densidad'),
+                    box(plotlyOutput('barcategori', width = "100%", height = "400px"),
+                        status = "info",
+                        solidHeader = TRUE, title = 'Barras'),
+                    box(plotlyOutput('Balloon', width = "100%", height = "400px"),
+                        status = "info",
+                        solidHeader = TRUE, title = 'Ballon plot')
                 )),
         
         tabItem(tabName = "data",
@@ -73,6 +83,6 @@ body <- dashboardBody(
 # ========================================================
 
 ui <- dashboardPage(header = header,
-                    body = body, sidebar = sidebar)
+                    body = body, sidebar = sidebar, skin = 'red')
 
 
